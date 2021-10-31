@@ -1,49 +1,8 @@
 # Meta data for the action.
 
-name: 'Heroku Review App Deployment Status'
-author: 'niteo.co'
-description: 'A Github Action to test the deployment status of a Heroku Review App.'
-branding:
-  icon: 'git-pull-request'  
-  color: 'orange'
-
+name: 'Pull Request AutoMerge'
+author: 'unnitallman'
+description: 'A Github Action to merge a PR if a particular label is present'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-
-inputs:
-  checks:
-    description: Comma separated list of checks to perform.
-    required: false
-    # Default: Perform all checks
-    default: build, response
-  build_time_delay:
-    description: Delay for the build stage of the review app.
-    required: false
-    default: 5
-  load_time_delay:
-    description: Delay for the app to load and start serving after it is built.
-    required: false
-    default: 5
-  interval:
-    description: Interval to repeat the deployment check in seconds.
-    required: false
-    default: 10
-  accepted_responses:
-    description: Comma separated status which can be accepted.
-    required: false
-    default: 200
-  deployments_timeout:
-    description: Maximum waiting time to fetch the deployments.
-    required: false
-    default: 120
-  publish_timeout:
-    description: Maximum time to spend retrying the HTTP response check until it succeeds.
-    required: false
-    default: 120
-
-outputs:
-  review_app_name:
-    description: "The name of the Heroku review app deployed."
-  review_app_url:
-    description: "The URL of the Heroku review app deployed."

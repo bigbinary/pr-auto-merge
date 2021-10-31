@@ -1,9 +1,8 @@
-FROM python:3.7-alpine
+FROM rubylang/ruby:2.7.2-bionic
 
-RUN pip install --upgrade pip
-RUN pip install requests==2.22.0
+RUN gem install octokit
 
 WORKDIR /app
 COPY . .
 
-CMD ["python3", "/app/review_app_status.py"]
+CMD ["ruby", "/app/auto_merge_pr.rb"]
