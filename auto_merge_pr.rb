@@ -1,7 +1,7 @@
 require 'octokit'
-require './src/github_graphql'
-require './src/pull_request'
-require './src/enable_pr_auto_merge'
+require_relative 'src/github_graphql'
+require_relative 'src/pull_request'
+require_relative 'src/enable_pr_auto_merge'
 
 p ENV
 
