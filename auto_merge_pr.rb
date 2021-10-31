@@ -19,7 +19,7 @@ end
 
 # if status checks have already completed and is successs
 if checks_status == "success"
-  client.merge_pull_request(ENV["GITHUB_REPOSITORY"], pr_number)
+  client.merge_pull_request(ENV["GITHUB_REPOSITORY"], pr_number, "", {merge_method: "squash"})
   exit(0)
 end
 
