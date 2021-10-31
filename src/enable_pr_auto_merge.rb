@@ -2,7 +2,7 @@ module GithubGraphql
   class EnablePRAutoMerge
     EnablePRAutoMergeMutation = GithubGraphql::Client.parse <<-'GRAPHQL'
       mutation($prid: ID!, $cmid: String!){
-        enablePullRequestAutoMerge(input: {pullRequestId: $prid, clientMutationId: $cmid}){
+        enablePullRequestAutoMerge(input: {mergeMethod:SQUASH, pullRequestId: $prid, clientMutationId: $cmid}){
           clientMutationId
         }
       }
