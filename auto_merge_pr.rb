@@ -16,5 +16,5 @@ GithubGraphql::EnablePRAutoMerge.mark! pr_id
 
 # if status checks have already completed and is successs
 if client.status(ENV["GITHUB_REPOSITORY"], ENV["GITHUB_HEAD_REF"])[:state] == "success"
-  client.merge_pull_request(repo, pr_number)
+  client.merge_pull_request(ENV["GITHUB_REPOSITORY"], pr_number)
 end
