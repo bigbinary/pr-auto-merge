@@ -3,7 +3,11 @@ require_relative 'src/github_graphql'
 require_relative 'src/pull_request'
 require_relative 'src/enable_pr_auto_merge'
 
+p ENV
+p ENV["GITHUB_TOKEN"]
 client = Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
+
+p client.user
 
 owner,repo = ENV["GITHUB_REPOSITORY"].split("/")
 pr_number  = ENV["GITHUB_REF"].split("/")[2].to_i
